@@ -20,9 +20,11 @@ export class UsuarioService {
     return this.usuarioModel.find().exec();
   }
 
-  // findOne(id: number) {
-  //   return `This action returns a #${id} usuario`;
-  // }
+  findOne(email: string): Promise<Usuario> {
+    // @ts-ignore
+    return this.usuarioModel.find({email: email}).exec();
+  }
+
   //
   // update(id: number, updateUsuarioDto: UpdateUsuarioDto) {
   //   return `This action updates a #${id} usuario`;
