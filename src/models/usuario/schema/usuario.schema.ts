@@ -1,5 +1,6 @@
 import { Document } from 'mongoose';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { TipoPerfil } from '../dto/create-usuario.dto';
 
 export type UsuarioDocument = Usuario & Document;
 
@@ -13,6 +14,15 @@ export class Usuario {
 
   @Prop()
   dataNascimento: string;
+
+  @Prop()
+  email: string;
+
+  @Prop()
+  senha: string;
+
+  @Prop()
+  tipoPerfil: TipoPerfil;
 }
 
 export const UsuarioSchema = SchemaFactory.createForClass(Usuario);
