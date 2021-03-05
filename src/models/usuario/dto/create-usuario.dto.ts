@@ -3,7 +3,7 @@ import { IsDate, IsEmail, IsEnum, IsNotEmpty, IsString } from 'class-validator';
 
 export enum TipoPerfil {
   candidato = 'candidato',
-  recrutador = 'recrutador'
+  recrutador = 'recrutador',
 }
 
 export class CreateUsuarioDto {
@@ -25,7 +25,5 @@ export class CreateUsuarioDto {
   senha: string;
 
   @IsEnum(TipoPerfil, { each: true })
-  tipoPerfil: TipoPerfil
-
-
+  tipoPerfil: TipoPerfil;
 }

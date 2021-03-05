@@ -6,10 +6,12 @@ import {
   Put,
   Param,
   Delete,
+  UseGuards,
 } from '@nestjs/common';
 import { UsuarioService } from './usuario.service';
 import { CreateUsuarioDto } from './dto/create-usuario.dto';
 import { UpdateUsuarioDto } from './dto/update-usuario.dto';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('usuario')
 export class UsuarioController {
@@ -23,6 +25,14 @@ export class UsuarioController {
   @Get()
   findAll() {
     return this.usuarioService.findAll();
+  }
+
+  @Get('test')
+  @UseGuards(AuthGuard())
+  testAuthRoute() {
+    return {
+      message: 'You did it!',
+    };
   }
 
   // @Get(':id')

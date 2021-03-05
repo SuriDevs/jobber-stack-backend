@@ -22,7 +22,7 @@ export class UsuarioService {
 
   findOne(email: string): Promise<Usuario> {
     // @ts-ignore
-    return this.usuarioModel.find({email: email}).exec();
+    return this.usuarioModel.findOne({ email: email }).exec();
   }
 
   //
